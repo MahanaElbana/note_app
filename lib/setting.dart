@@ -54,9 +54,9 @@ class _SettingsState extends State<Settings> {
   /// [path] == > ممكن يكون رقم وموبيل  او يكون ايميل اويكون رابط
 
   String _facebookUrl =
-      "https://www.facebook.com/profile.php?id=156565621138";
+      "https://www.facebook.com/profile.php?id=565656";
 
-  //String emailaddress =  Uri(scheme: 'mailto', path: 'cbmbbmj@gmail.com').toString();
+  //String emailaddress =  Uri(scheme: 'mailto', path: 'example@gmail.com').toString();
   String emailaddress = "mailto:examplej@gmail.com";
 
   //// tel:<phone number>, e.g. tel:+1 555 010 999  ////
@@ -240,7 +240,7 @@ class _SettingsState extends State<Settings> {
               ListTile(
                 onTap: () => lanchUrl(phonenumber),
                 title: Text(
-                  "01024511575",
+                  "0102565655",
                   style: styleFunc(
                       fontsize: 28,
                       color: (color1 == Color(0xff4d94ff).value)
