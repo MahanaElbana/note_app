@@ -3,4 +3,4 @@ note app with firebase
 
 ## screenshots 🙂
 
-!["app"]()
+!["app"](screenshots/1.PNG)
