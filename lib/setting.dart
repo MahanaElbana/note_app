@@ -54,13 +54,13 @@ class _SettingsState extends State<Settings> {
   /// [path] == > ممكن يكون رقم وموبيل  او يكون ايميل اويكون رابط
 
   String _facebookUrl =
-      "https://www.facebook.com/profile.php?id=100006134021138";
+      "https://www.facebook.com/profile.php?id=156565621138";
 
   //String emailaddress =  Uri(scheme: 'mailto', path: 'cbmbbmj@gmail.com').toString();
-  String emailaddress = "mailto:cbmbbmj@gmail.com";
+  String emailaddress = "mailto:examplej@gmail.com";
 
   //// tel:<phone number>, e.g. tel:+1 555 010 999  ////
-  String phonenumber = Uri(scheme: "tel", path: "01024511575").toString();
+  String phonenumber = Uri(scheme: "tel", path: "016565651556575").toString();
 
   ////// sms:<phone number>, e.g. sms:5550101234
   String error = "";
