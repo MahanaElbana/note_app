@@ -1,6 +1,6 @@
 # note_app
-note app with firebase
-
+This application uses the firebase for storage, also supports the Arabic 
+and English languages and includes two modes : - light and dark modes .
 ## package 😄
 ~~~ packages
   jiffy: ^4.1.0
