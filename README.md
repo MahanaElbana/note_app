@@ -2,7 +2,7 @@
 note app with firebase
 
 ## package 😄
-~~~
+~~~ packages
   jiffy: ^4.1.0
   image_picker: ^0.8.2
   http: ^0.13.3
