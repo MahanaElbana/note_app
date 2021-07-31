@@ -30,4 +30,4 @@ and English languages and includes two modes : - light and dark modes .
 ![](screenshots/4.PNG)
 ![](screenshots/5.PNG)
 ![](screenshots/6.PNG)
-![](screenshots/7.PNG)
+
