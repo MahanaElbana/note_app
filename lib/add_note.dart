@@ -18,12 +18,15 @@ class _AddNoteState extends State<AddNote> {
   String title = "";
   String content = "";
   addNote() async {
+    print(
+      FirebaseAuth.instance.currentUser?.uid
+    );
     CollectionReference collectionReference =
-        FirebaseFirestore.instance.collection("note");
+       await FirebaseFirestore.instance.collection("note");
     await collectionReference.add({
       "title": _titleController.text,
       "content": _contentController.text,
-      "userId": FirebaseAuth.instance.currentUser?.uid,
+      "userId": await FirebaseAuth.instance.currentUser?.uid,
     });
   }
 

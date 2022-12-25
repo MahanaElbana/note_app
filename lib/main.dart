@@ -18,9 +18,7 @@ void main() async {
   await Firebase.initializeApp(
     options: FirebaseOptions(
     apiKey: "AIzaSyCaIfSzGR9F3AWt0qnCdIyRbuvLMn4ex-I",
-    authDomain: "noteapp-f4afc.firebaseapp.com",
     projectId: "noteapp-f4afc",
-    storageBucket: "noteapp-f4afc.appspot.com",
     messagingSenderId: "89427593115",
     appId: "1:89427593115:web:f95e879413d9c19da6833e"
   ));
