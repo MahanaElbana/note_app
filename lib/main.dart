@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:star/add_note.dart';
 
-import 'package:star/gui.dart';
+
 import 'package:star/setting.dart';
 
 import 'package:star/sign_in.dart';
@@ -48,7 +48,6 @@ class MyApp extends StatelessWidget {
         "SignUp": (BuildContext context) => SignUP(),
         "SignIn": (BuildContext context) => SignIN(),
         "HomePage": (BuildContext context) => HomePage(),
-        "Gui": (BuildContext context) => Gui(),
         "AddNote": (BuildContext context) => AddNote(),
         "Settings": (BuildContext context) => Settings(),
       },
