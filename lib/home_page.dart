@@ -1,13 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-
 import 'package:star/component/alert.dart';
-
 import 'package:star/eidit_note.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -140,53 +138,6 @@ class _HomePageState extends State<HomePage> {
           : ListView(
               shrinkWrap: true,
               children: [
-                /* Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Container(
-                    padding: EdgeInsets.all(10.0),
-                    width: MediaQuery.of(context).size.width * 0.85,
-                    child: TextField(
-                      /////    decoration: InputDecoration  /////
-                      decoration: InputDecoration(
-                        hintText: "Enter your title note ",
-                        hintStyle: styleFunc(color: kGrayColor),
-
-                        prefixIcon: Icon(
-                          Icons.email,
-                          color: kWhiteColor,
-                        ),
-
-                        /////   enabledBorder enabled start shape////
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8.0),
-                          borderSide:
-                              BorderSide(color: kWhiteColor, width: 1.0),
-                        ),
-                        /////   enabledBorder ////
-
-                        ////////   focusedBorder at writting  ////
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8.0),
-                          borderSide:
-                              BorderSide(color: kWhiteColor, width: 1.0),
-                        ),
-                        ////////   focusedBorder ////
-                      ),
-                      /////////     decoration: InputDecoration   ////////
-                      controller: _searchController,
-                      keyboardType: TextInputType.visiblePassword,
-                      cursorColor: kWhiteColor,
-                      cursorHeight: 27.0,
-                      cursorRadius: Radius.circular(15.0),
-                      cursorWidth: 4.0,
-                      showCursor: true,
-                      autocorrect: true,
-                      textInputAction: TextInputAction.done,
-                      //  onChanged: searchData,
-                    ),
-                  ),
-                ),
-                */
                 SizedBox(height: 10.0),
                 ListView.builder(
                   shrinkWrap: true,

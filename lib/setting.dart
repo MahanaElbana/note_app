@@ -354,48 +354,7 @@ class _SettingsState extends State<Settings> {
                   await addRating(rating);
                 },
               ),
-              /////////////////////////////////////////////////////////////////////
-              /* RatingBar.builder(
-                //allowHalfRating: true,
-                direction: Axis.horizontal,
-                itemCount: 5,
-                initialRating: 3,
-                itemBuilder: (context, index) {
-                  switch (index) {
-                    case 0:
-                      return Icon(
-                        Icons.sentiment_very_dissatisfied,
-                        color: Colors.red,
-                      );
-                    case 1:
-                      return Icon(
-                        Icons.sentiment_dissatisfied,
-                        color: Colors.redAccent,
-                      );
-                    case 2:
-                      return Icon(
-                        Icons.sentiment_neutral,
-                        color: Colors.amber,
-                      );
-                    case 3:
-                      return Icon(
-                        Icons.sentiment_satisfied,
-                        color: Colors.lightGreen,
-                      );
-                    case 4:
-                      return Icon(
-                        Icons.sentiment_very_satisfied,
-                        color: Colors.green,
-                      );
-                    default:
-                      return Container();
-                  }
-                },
-                onRatingUpdate: (double value) {
-                  print(value);
-                },
-              )*/
-              /////////////////////////////////////////////////////////////////////
+              
             ],
           ),
         ),
