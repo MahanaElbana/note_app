@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 import 'package:star/component/alert.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:star/eidit_note.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -75,13 +75,13 @@ class _HomePageState extends State<HomePage> {
             (color1 == Color(0xff4d94ff).value) ? Colors.blue : Colors.black,
         leading: Icon(
           Icons.home_outlined,
-          color: (color1 == Color(0xff4d94ff).value) ? kGrayColor : kWhiteColor,
+          color: (color1 == Color(0xff4d94ff).value) ? AppColors.kGrayColor : AppColors.kWhiteColor,
         ),
         title: Text(
           "HP".tr,
           style: styleFunc(
             color:
-                (color1 == Color(0xff4d94ff).value) ? kGrayColor : kWhiteColor,
+                (color1 == Color(0xff4d94ff).value) ? AppColors.kGrayColor : AppColors.kWhiteColor,
           ),
         ),
         actions: [
@@ -90,8 +90,8 @@ class _HomePageState extends State<HomePage> {
             "LOu".tr,
             style: styleFunc(
               color: (color1 == Color(0xff4d94ff).value)
-                  ? kGrayColor
-                  : kWhiteColor,
+                  ? AppColors.kGrayColor
+                  : AppColors.kWhiteColor,
             ),
           )),
           IconButton(
@@ -129,8 +129,8 @@ class _HomePageState extends State<HomePage> {
                         style: styleFunc(
                             fontsize: 30.0,
                             color: (color1 == Color(0xff4d94ff).value)
-                                ? kGrayColor
-                                : kWhiteColor),
+                                ? AppColors.kGrayColor
+                                : AppColors.kWhiteColor),
                       ),
                     )
                   ],
@@ -208,33 +208,34 @@ class _HomePageState extends State<HomePage> {
                       child: ListTile(
                         title: Text(
                           "${lData[index]["title"]}",
-                          style: styleFunc(color: kWhiteColor, fontsize: 20.0),
+                          style: styleFunc(color: AppColors.kWhiteColor, fontsize: 20.0),
                         ),
-                        //////////////
+
+                    //========== =======  deleteData ======= ===========//
                         leading: IconButton(
-                          icon: FaIcon(
-                            FontAwesomeIcons.removeFormat,
+                          icon: Icon(
+                            Icons.delete_forever_rounded ,
                             color: Colors.red[900],
                           ),
                           onPressed: () async {
-                            ///////////// *****deleteData******* /////////
+                
                             await deleteData(idDoc[index]);
                             setState(() {
                               lData = [];
                               idDoc = [];
                             });
                             await getDat();
-                            ///////////// ******deleteData****** /////////
+                
                           },
                         ),
-                        //////////////////////
+                    //========= ========== === deleteData ======== ======//
                         trailing: IconButton(
-                          icon: FaIcon(
-                            FontAwesomeIcons.edit,
-                            color: kWhiteColor,
+                          icon: Icon(
+                            Icons.edit_note ,
+                            color: AppColors.kGreenColor,
                           ),
                           onPressed: () {
-                            //////////////////
+                          
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
@@ -254,7 +255,7 @@ class _HomePageState extends State<HomePage> {
                         subtitle: Text(
                           "${lData[index]["content"]}",
                           style: TextStyle(
-                              fontFamily: "GowunBatang", color: kWhiteColor),
+                              fontFamily: "GowunBatang", color: AppColors.kWhiteColor),
                           // overflow: TextOverflow.clip,
                         ),
                       ),
@@ -269,13 +270,13 @@ class _HomePageState extends State<HomePage> {
           FloatingActionButton(
             isExtended: true,
             backgroundColor:
-                (color1 == Color(0xff4d94ff).value) ? Colors.blue : kGrayColor,
+                (color1 == Color(0xff4d94ff).value) ? Colors.blue : AppColors.kGrayColor,
             child: Center(
                 child: Icon(
               Icons.settings,
               color: (color1 == Color(0xff4d94ff).value)
-                  ? kGrayColor
-                  : kWhiteColor,
+                  ? AppColors.kGrayColor
+                  : AppColors.kWhiteColor,
             )),
             heroTag: "settings",
             onPressed: () {
@@ -290,15 +291,15 @@ class _HomePageState extends State<HomePage> {
           FloatingActionButton(
             isExtended: true,
             backgroundColor:
-                (color1 == Color(0xff4d94ff).value) ? Colors.blue : kGrayColor,
+                (color1 == Color(0xff4d94ff).value) ? Colors.blue : AppColors.kGrayColor,
             child: Center(
               child: Text(
                 "ADD".tr,
                 style: styleFunc(
                     fontsize: 20,
                     color: (color1 == Color(0xff4d94ff).value)
-                        ? kGrayColor
-                        : kWhiteColor),
+                        ? AppColors.kGrayColor
+                        : AppColors.kWhiteColor),
               ),
             ),
             heroTag: "add",

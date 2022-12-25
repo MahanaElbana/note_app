@@ -80,7 +80,7 @@ class _SignUPState extends State<SignUP> {
               ////////////////////////////////
               Text(
                 "SU".tr,
-                style: styleFunc(fontsize: 30, color: kWhiteColor),
+                style: styleFunc(fontsize: 30, color: AppColors.kWhiteColor),
               ),
               SizedBox(
                 height: 40.0,
@@ -88,13 +88,13 @@ class _SignUPState extends State<SignUP> {
               ////////////////////////////////
               ////////////    TextField     ////////////
               CircleAvatar(
-                backgroundColor: kWhiteColor,
+                backgroundColor: AppColors.kWhiteColor,
                 radius: 60.0,
                 child: IconButton(
                   onPressed: () {},
                   icon: FaIcon(
                     FontAwesomeIcons.photoVideo,
-                    color: kGrayColor,
+                    color: AppColors.kGrayColor,
                   ),
                 ),
               ),
@@ -106,10 +106,10 @@ class _SignUPState extends State<SignUP> {
                   /////    decoration: InputDecoration  /////
                   decoration: InputDecoration(
                     hintText: "EYN".tr,
-                    hintStyle: styleFunc(color: kGrayColor),
+                    hintStyle: styleFunc(color: AppColors.kGrayColor),
                     labelText: "NE".tr,
-                    labelStyle: styleFunc(color: kWhiteColor),
-                    prefixIcon: Icon(Icons.person, color: kWhiteColor),
+                    labelStyle: styleFunc(color: AppColors.kWhiteColor),
+                    prefixIcon: Icon(Icons.person, color: AppColors.kWhiteColor),
 
                     /////   enabledBorder enabled start shape////
                     enabledBorder: OutlineInputBorder(
@@ -122,14 +122,14 @@ class _SignUPState extends State<SignUP> {
                     ////////   focusedBorder at writting  ////
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
-                      borderSide: BorderSide(color: kWhiteColor, width: 1.0),
+                      borderSide: BorderSide(color: AppColors.kWhiteColor, width: 1.0),
                     ),
                     ////////   focusedBorder ////
                   ),
                   /////////     decoration: InputDecoration   ////////
                   controller: _nameController,
                   keyboardType: TextInputType.name,
-                  cursorColor: kWhiteColor,
+                  cursorColor: AppColors.kWhiteColor,
                   cursorHeight: 27.0,
                   cursorRadius: Radius.circular(15.0),
                   cursorWidth: 4.0,
@@ -146,12 +146,12 @@ class _SignUPState extends State<SignUP> {
                   /////    decoration: InputDecoration  /////
                   decoration: InputDecoration(
                     hintText: "EYE".tr,
-                    hintStyle: styleFunc(color: kGrayColor),
+                    hintStyle: styleFunc(color: AppColors.kGrayColor),
                     labelText: "E".tr,
-                    labelStyle: styleFunc(color: kWhiteColor),
+                    labelStyle: styleFunc(color: AppColors.kWhiteColor),
                     prefixIcon: Icon(
                       Icons.email,
-                      color: kWhiteColor,
+                      color: AppColors.kWhiteColor,
                     ),
 
                     /////   enabledBorder enabled start shape////
@@ -165,7 +165,7 @@ class _SignUPState extends State<SignUP> {
                     ////////   focusedBorder at writting  ////
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
-                      borderSide: BorderSide(color: kWhiteColor, width: 1.0),
+                      borderSide: BorderSide(color: AppColors.kWhiteColor, width: 1.0),
                     ),
                     ////////   focusedBorder ////
                   ),
@@ -189,12 +189,12 @@ class _SignUPState extends State<SignUP> {
                   /////    decoration: InputDecoration  /////
                   decoration: InputDecoration(
                     hintText: "EYPh".tr,
-                    hintStyle: styleFunc(color: kGrayColor),
+                    hintStyle: styleFunc(color: AppColors.kGrayColor),
                     labelText: "Ph".tr,
-                    labelStyle: styleFunc(color: kWhiteColor),
+                    labelStyle: styleFunc(color: AppColors.kWhiteColor),
                     prefixIcon: Icon(
                       Icons.phone_android_rounded,
-                      color: kWhiteColor,
+                      color: AppColors.kWhiteColor,
                     ),
 
                     /////   enabledBorder enabled start shape////
@@ -208,7 +208,7 @@ class _SignUPState extends State<SignUP> {
                     ////////   focusedBorder at writting  ////
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
-                      borderSide: BorderSide(color: kWhiteColor, width: 1.0),
+                      borderSide: BorderSide(color: AppColors.kWhiteColor, width: 1.0),
                     ),
                     ////////   focusedBorder ////
                   ),
@@ -232,12 +232,12 @@ class _SignUPState extends State<SignUP> {
                   /////    decoration: InputDecoration  /////
                   decoration: InputDecoration(
                     hintText: "EYP".tr,
-                    hintStyle: styleFunc(color: kGrayColor),
+                    hintStyle: styleFunc(color: AppColors.kGrayColor),
                     labelText: "P".tr,
-                    labelStyle: styleFunc(color: kWhiteColor),
+                    labelStyle: styleFunc(color: AppColors.kWhiteColor),
                     prefixIcon: Icon(
                       Icons.lock_clock_outlined,
-                      color: kWhiteColor,
+                      color: AppColors.kWhiteColor,
                     ),
 
                     /////   enabledBorder enabled start shape////
@@ -251,21 +251,21 @@ class _SignUPState extends State<SignUP> {
                     ////////   focusedBorder at writting  ////
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
-                      borderSide: BorderSide(color: kWhiteColor, width: 1.0),
+                      borderSide: BorderSide(color: AppColors.kWhiteColor, width: 1.0),
                     ),
                     ////////   focusedBorder ////
 
                     suffixIcon: IconButton(
                       icon: enable
                           ? Icon(Icons.visibility_off_outlined,
-                              color: kGrayColor)
-                          : Icon(Icons.visibility_outlined, color: kWhiteColor),
+                              color: AppColors.kGrayColor)
+                          : Icon(Icons.visibility_outlined, color: AppColors.kWhiteColor),
                       onPressed: togleObscure,
                     ),
 
                     suffix: enable
-                        ? Text("Sh".tr, style: TextStyle(color: kGrayColor))
-                        : Text("Hd".tr, style: TextStyle(color: kWhiteColor)),
+                        ? Text("Sh".tr, style: TextStyle(color: AppColors.kGrayColor))
+                        : Text("Hd".tr, style: TextStyle(color: AppColors.kWhiteColor)),
                   ),
                   /////////     decoration: InputDecoration   ////////
                   controller: _passwordController,
@@ -295,13 +295,13 @@ class _SignUPState extends State<SignUP> {
                             Text(
                               "DYHAA".tr,
                               style:
-                                  styleFunc(color: kGrayColor, fontsize: 20.0),
+                                  styleFunc(color: AppColors.kGrayColor, fontsize: 20.0),
                             ),
                             GestureDetector(
                               child: Text(
                                 "SI".tr,
                                 style: styleFunc(
-                                    color: kWhiteColor, fontsize: 27.0),
+                                    color: AppColors.kWhiteColor, fontsize: 27.0),
                               ),
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
@@ -328,7 +328,7 @@ class _SignUPState extends State<SignUP> {
                 height: 45.0,
                 width: MediaQuery.of(context).size.width * 0.85,
                 decoration: BoxDecoration(
-                  color: kWhiteColor,
+                  color: AppColors.kWhiteColor,
                   borderRadius: BorderRadius.circular(15.0),
                 ),
                 child: TextButton(

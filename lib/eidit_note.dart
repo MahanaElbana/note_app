@@ -84,17 +84,17 @@ class _EditNoteState extends State<EditNote> {
                         icon: Icon(
                           Icons.arrow_back_ios_new_sharp,
                           color: (color1 == Color(0xff4d94ff).value)
-                              ? kGrayColor
-                              : kWhiteColor,
+                              ? AppColors.kGrayColor
+                              : AppColors.kWhiteColor,
                         ),
-                        color: kWhiteColor,
+                        color: AppColors.kWhiteColor,
                       ),
                       Text(
                         "Up".tr,
                         style: styleFunc(
                             color: (color1 == Color(0xff4d94ff).value)
-                                ? kGrayColor
-                                : kWhiteColor,
+                                ? AppColors.kGrayColor
+                                : AppColors.kWhiteColor,
                             fontsize: 25),
                       ),
                     ],
@@ -110,10 +110,10 @@ class _EditNoteState extends State<EditNote> {
                   /////    decoration: InputDecoration  /////
                   decoration: InputDecoration(
                     hintText: "EYT".tr,
-                    hintStyle: styleFunc(color: kGrayColor),
+                    hintStyle: styleFunc(color: AppColors.kGrayColor),
                     labelText: "T".tr,
-                    labelStyle: styleFunc(color: kWhiteColor),
-                    prefixIcon: Icon(Icons.person, color: kWhiteColor),
+                    labelStyle: styleFunc(color: AppColors.kWhiteColor),
+                    prefixIcon: Icon(Icons.person, color: AppColors.kWhiteColor),
 
                     /////   enabledBorder enabled start shape////
                     enabledBorder: OutlineInputBorder(
@@ -126,14 +126,14 @@ class _EditNoteState extends State<EditNote> {
                     ////////   focusedBorder at writting  ////
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
-                      borderSide: BorderSide(color: kWhiteColor, width: 1.0),
+                      borderSide: BorderSide(color: AppColors.kWhiteColor, width: 1.0),
                     ),
                     ////////   focusedBorder ////
                   ),
                   /////////     decoration: InputDecoration   ////////
                   controller: _titleController,
                   keyboardType: TextInputType.name,
-                  cursorColor: kWhiteColor,
+                  cursorColor: AppColors.kWhiteColor,
                   cursorHeight: 27.0,
                   cursorRadius: Radius.circular(15.0),
                   cursorWidth: 4.0,
@@ -152,12 +152,12 @@ class _EditNoteState extends State<EditNote> {
                   /////    decoration: InputDecoration  /////
                   decoration: InputDecoration(
                     hintText: "EYC".tr,
-                    hintStyle: styleFunc(color: kGrayColor),
+                    hintStyle: styleFunc(color: AppColors.kGrayColor),
                     labelText: "C".tr,
-                    labelStyle: styleFunc(color: kWhiteColor),
+                    labelStyle: styleFunc(color: AppColors.kWhiteColor),
                     prefixIcon: Icon(
                       Icons.email,
-                      color: kWhiteColor,
+                      color: AppColors.kWhiteColor,
                     ),
 
                     /////   enabledBorder enabled start shape////
@@ -171,7 +171,7 @@ class _EditNoteState extends State<EditNote> {
                     ////////   focusedBorder at writting  ////
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
-                      borderSide: BorderSide(color: kWhiteColor, width: 1.0),
+                      borderSide: BorderSide(color: AppColors.kWhiteColor, width: 1.0),
                     ),
                     ////////   focusedBorder ////
                   ),

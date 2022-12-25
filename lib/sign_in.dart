@@ -80,7 +80,7 @@ class _SignINState extends State<SignIN> {
               ////////////////////////////////
               Text(
                 "SI".tr,
-                style: styleFunc(fontsize: 30, color: kWhiteColor),
+                style: styleFunc(fontsize: 30, color: AppColors.kWhiteColor),
               ),
               SizedBox(
                 height: 40.0,
@@ -93,12 +93,12 @@ class _SignINState extends State<SignIN> {
                   /////    decoration: InputDecoration  /////
                   decoration: InputDecoration(
                     hintText: "EYE".tr,
-                    hintStyle: styleFunc(color: kGrayColor),
+                    hintStyle: styleFunc(color: AppColors.kGrayColor),
                     labelText: "E".tr,
-                    labelStyle: styleFunc(color: kWhiteColor),
+                    labelStyle: styleFunc(color: AppColors.kWhiteColor),
                     prefixIcon: Icon(
                       Icons.email,
-                      color: kWhiteColor,
+                      color: AppColors.kWhiteColor,
                     ),
 
                     /////   enabledBorder enabled start shape////
@@ -112,14 +112,14 @@ class _SignINState extends State<SignIN> {
                     ////////   focusedBorder at writting  ////
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
-                      borderSide: BorderSide(color: kWhiteColor, width: 1.0),
+                      borderSide: BorderSide(color: AppColors.kWhiteColor, width: 1.0),
                     ),
                     ////////   focusedBorder ////
                   ),
                   /////////     decoration: InputDecoration   ////////
                   controller: _emailController,
                   keyboardType: TextInputType.visiblePassword,
-                  cursorColor: kWhiteColor,
+                  cursorColor: AppColors.kWhiteColor,
                   cursorHeight: 27.0,
                   cursorRadius: Radius.circular(15.0),
                   cursorWidth: 4.0,
@@ -136,12 +136,12 @@ class _SignINState extends State<SignIN> {
                   /////    decoration: InputDecoration  /////
                   decoration: InputDecoration(
                     hintText: "EYP".tr,
-                    hintStyle: styleFunc(color: kGrayColor, fontsize: 18),
+                    hintStyle: styleFunc(color: AppColors.kGrayColor, fontsize: 18),
                     labelText: "P".tr,
-                    labelStyle: styleFunc(color: kWhiteColor, fontsize: 18),
+                    labelStyle: styleFunc(color: AppColors.kWhiteColor, fontsize: 18),
                     prefixIcon: Icon(
                       Icons.lock_open_outlined,
-                      color: kWhiteColor,
+                      color: AppColors.kWhiteColor,
                     ),
 
                     /////   enabledBorder enabled start shape////
@@ -155,26 +155,26 @@ class _SignINState extends State<SignIN> {
                     ////////   focusedBorder at writting  ////
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
-                      borderSide: BorderSide(color: kWhiteColor, width: 1.0),
+                      borderSide: BorderSide(color: AppColors.kWhiteColor, width: 1.0),
                     ),
                     ////////   focusedBorder ////
 
                     suffixIcon: IconButton(
                       icon: enable
                           ? Icon(Icons.visibility_off_outlined,
-                              color: kGrayColor)
-                          : Icon(Icons.visibility_outlined, color: kWhiteColor),
+                              color: AppColors.kGrayColor)
+                          : Icon(Icons.visibility_outlined, color: AppColors.kWhiteColor),
                       onPressed: togleObscure,
                     ),
 
                     suffix: enable
-                        ? Text("Sh".tr, style: TextStyle(color: kGrayColor))
-                        : Text("Hd".tr, style: TextStyle(color: kWhiteColor)),
+                        ? Text("Sh".tr, style: TextStyle(color: AppColors.kGrayColor))
+                        : Text("Hd".tr, style: TextStyle(color: AppColors.kWhiteColor)),
                   ),
                   /////////     decoration: InputDecoration   ////////
                   controller: _passwordController,
                   keyboardType: TextInputType.visiblePassword,
-                  cursorColor: kWhiteColor,
+                  cursorColor: AppColors.kWhiteColor,
                   cursorHeight: 27.0,
                   cursorRadius: Radius.circular(8.0),
                   cursorWidth: 3.0,
@@ -200,13 +200,13 @@ class _SignINState extends State<SignIN> {
                             Text(
                               "DNYHAA".tr,
                               style:
-                                  styleFunc(color: kGrayColor, fontsize: 20.0),
+                                  styleFunc(color: AppColors.kGrayColor, fontsize: 20.0),
                             ),
                             GestureDetector(
                               child: Text(
                                 "SU".tr,
                                 style: styleFunc(
-                                    color: kWhiteColor, fontsize: 27.0),
+                                    color: AppColors.kWhiteColor, fontsize: 27.0),
                               ),
                               onTap: () {
                                 Navigator.pushReplacementNamed(
@@ -228,7 +228,7 @@ class _SignINState extends State<SignIN> {
                 height: 45.0,
                 width: MediaQuery.of(context).size.width * 0.85,
                 decoration: BoxDecoration(
-                    color: kWhiteColor,
+                    color: AppColors.kWhiteColor,
                     borderRadius: BorderRadius.circular(15.0)),
                 child: TextButton(
                   child: Text("LO".tr,
@@ -295,10 +295,10 @@ class _SignINState extends State<SignIN> {
 
               SizedBox(height: 13.0),
               Text("OR".tr,
-                  style: styleFunc(color: kGrayColor, fontsize: 18.0)),
+                  style: styleFunc(color: AppColors.kGrayColor, fontsize: 18.0)),
               SizedBox(height: 10),
               Text("SIW".tr,
-                  style: styleFunc(color: kGrayColor, fontsize: 18.0)),
+                  style: styleFunc(color: AppColors.kGrayColor, fontsize: 18.0)),
               SizedBox(height: 25.0),
               //////////////////////
               Row(

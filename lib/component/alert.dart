@@ -7,7 +7,7 @@ showdialog(BuildContext context) {
       return AlertDialog(
         title: Text(
           "Loading ---- ",
-          style: styleFunc(color: kGrayColor),
+          style: styleFunc(color: AppColors.kGrayColor),
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
@@ -33,5 +33,9 @@ TextStyle styleFunc({fontsize, required Color color}) {
   );
 }
 
-Color kGrayColor = Color(0xff373f49);
-Color kWhiteColor = Colors.white;
+class AppColors {
+static const Color kGrayColor = Color(0xff373f49);
+static const Color kWhiteColor = Colors.white;
+static  Color kGreenColor = Colors.blue.shade900;
+}
+

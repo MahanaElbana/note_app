@@ -140,8 +140,8 @@ class _SettingsState extends State<Settings> {
                       icon: Icon(
                         Icons.arrow_back,
                         color: (color1 == Color(0xff4d94ff).value)
-                            ? kGrayColor
-                            : kWhiteColor,
+                            ? AppColors.kGrayColor
+                            : AppColors.kWhiteColor,
                       ),
                       onPressed: () {
                         Navigator.pushNamed(context, "HomePage");
@@ -151,8 +151,8 @@ class _SettingsState extends State<Settings> {
                       "S".tr,
                       style: styleFunc(
                           color: (color1 == Color(0xff4d94ff).value)
-                              ? kGrayColor
-                              : kWhiteColor,
+                              ? AppColors.kGrayColor
+                              : AppColors.kWhiteColor,
                           fontsize: 25.0),
                     )
                   ],
@@ -163,18 +163,18 @@ class _SettingsState extends State<Settings> {
                     (color1 == Color(0xff4d94ff).value) ? "LT".tr : "DT".tr,
                     style: styleFunc(
                         color: (color1 == Color(0xff4d94ff).value)
-                            ? kGrayColor
-                            : kWhiteColor,
+                            ? AppColors.kGrayColor
+                            : AppColors.kWhiteColor,
                         fontsize: 27),
                   ),
                   leading: (color1 == Color(0xff4d94ff).value)
                       ? Icon(
                           Icons.light_mode,
-                          color: kGrayColor,
+                          color: AppColors.kGrayColor,
                         )
                       : Icon(
                           Icons.dark_mode,
-                          color: kWhiteColor,
+                          color: AppColors.kWhiteColor,
                         ),
                   onTap: () {
                     setState(() {
@@ -194,18 +194,18 @@ class _SettingsState extends State<Settings> {
                     "CL".tr,
                     style: styleFunc(
                         color: (color1 == Color(0xff4d94ff).value)
-                            ? kGrayColor
-                            : kWhiteColor,
+                            ? AppColors.kGrayColor
+                            : AppColors.kWhiteColor,
                         fontsize: 27),
                   ),
                   leading: (color1 == Color(0xff4d94ff).value)
                       ? Icon(
                           Icons.light_mode,
-                          color: kGrayColor,
+                          color:AppColors.kGrayColor,
                         )
                       : Icon(
                           Icons.dark_mode,
-                          color: kWhiteColor,
+                          color: AppColors.kWhiteColor,
                         ),
                   onTap: () {
                     changeLanguage();
@@ -219,8 +219,8 @@ class _SettingsState extends State<Settings> {
                 padding: const EdgeInsets.all(16.0),
                 child: Divider(
                   color: (color1 == Color(0xff4d94ff).value)
-                      ? kGrayColor
-                      : kWhiteColor,
+                      ? AppColors.kGrayColor
+                      : AppColors.kWhiteColor,
                 ),
               ),
               ///////////
@@ -230,8 +230,8 @@ class _SettingsState extends State<Settings> {
                   style: styleFunc(
                       fontsize: 30,
                       color: (color1 == Color(0xff4d94ff).value)
-                          ? kGrayColor
-                          : kWhiteColor),
+                          ? AppColors.kGrayColor
+                          : AppColors.kWhiteColor),
                 ),
               ),
               SizedBox(
@@ -244,8 +244,8 @@ class _SettingsState extends State<Settings> {
                   style: styleFunc(
                       fontsize: 28,
                       color: (color1 == Color(0xff4d94ff).value)
-                          ? kGrayColor
-                          : kWhiteColor),
+                          ? AppColors.kGrayColor
+                          : AppColors.kWhiteColor),
                 ),
                 leading: Icon(
                   Icons.phone,
@@ -274,8 +274,8 @@ class _SettingsState extends State<Settings> {
                   style: styleFunc(
                       fontsize: 28,
                       color: (color1 == Color(0xff4d94ff).value)
-                          ? kGrayColor
-                          : kWhiteColor),
+                          ? AppColors.kGrayColor
+                          : AppColors.kWhiteColor),
                 ),
                 leading: FaIcon(
                   FontAwesomeIcons.facebook,
@@ -288,8 +288,8 @@ class _SettingsState extends State<Settings> {
                   style: styleFunc(
                       fontsize: 28,
                       color: (color1 == Color(0xff4d94ff).value)
-                          ? kGrayColor
-                          : kWhiteColor),
+                          ? AppColors.kGrayColor
+                          : AppColors.kWhiteColor),
                 ),
               ),
               /////////////////////////////////
@@ -306,8 +306,8 @@ class _SettingsState extends State<Settings> {
                   style: styleFunc(
                       fontsize: 28,
                       color: (color1 == Color(0xff4d94ff).value)
-                          ? kGrayColor
-                          : kWhiteColor),
+                          ? AppColors.kGrayColor
+                          : AppColors.kWhiteColor),
                 ),
                 leading: FaIcon(
                   FontAwesomeIcons.mailBulk,
@@ -320,8 +320,8 @@ class _SettingsState extends State<Settings> {
                   style: styleFunc(
                       fontsize: 28,
                       color: (color1 == Color(0xff4d94ff).value)
-                          ? kGrayColor
-                          : kWhiteColor),
+                          ? AppColors.kGrayColor
+                          : AppColors.kWhiteColor),
                 ),
               ),
               /////////////////////////////////////////////////////////////////////
@@ -333,8 +333,8 @@ class _SettingsState extends State<Settings> {
                 style: styleFunc(
                     fontsize: 28,
                     color: (color1 == Color(0xff4d94ff).value)
-                        ? kGrayColor
-                        : kWhiteColor),
+                        ?AppColors.kGrayColor
+                        : AppColors.kWhiteColor),
               ),
               SizedBox(
                 height: 14.0,
