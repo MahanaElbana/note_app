@@ -1,4 +1,4 @@
-import 'package:awesome_dialog/awesome_dialog.dart';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -252,41 +252,41 @@ class _SignINState extends State<SignIN> {
                       } on FirebaseAuthException catch (e) {
                         if (e.code == 'user-not-found') {
                           Navigator.of(context).pop();
-                          AwesomeDialog(
-                              context: context,
-                              title: "user",
-                              body: Text("user-not-found"))
-                            ..show();
+                          // AwesomeDialog(
+                          //     context: context,
+                          //     title: "user",
+                          //     body: Text("user-not-found"))
+                          //   ..show();
                         } else if (e.code == 'wrong-password') {
                           Navigator.of(context).pop();
-                          AwesomeDialog(
-                              context: context,
-                              title: "user",
-                              body: Text("wrong-password"))
-                            ..show();
+                          // AwesomeDialog(
+                          //     context: context,
+                          //     title: "user",
+                          //     body: Text("wrong-password"))
+                          //   ..show();
                         } else {
                           Navigator.of(context).pop();
-                          AwesomeDialog(
-                              context: context,
-                              title: "user",
-                              body: Text("user-not-found and wrong-password"))
-                            ..show();
+                          // AwesomeDialog(
+                          //     context: context,
+                          //     title: "user",
+                          //     body: Text("user-not-found and wrong-password"))
+                          //   ..show();
                         }
                       } catch (e) {
-                        AwesomeDialog(
-                            context: context,
-                            title: "user",
-                            body: Text("an error ocurr!"))
-                          ..show();
+                        // AwesomeDialog(
+                        //     context: context,
+                        //     title: "user",
+                        //     body: Text("an error ocurr!"))
+                        //   ..show();
                       }
 
                       //// signUP  ///
                     } else {
-                      AwesomeDialog(
-                        context: context,
-                        title: "ERROR",
-                        body: Text("name>2 , email>8 ,pasword>6"),
-                      )..show();
+                      // AwesomeDialog(
+                      //   context: context,
+                      //   title: "ERROR",
+                      //   body: Text("name>2 , email>8 ,pasword>6"),
+                      // )..show();
                     }
                   },
                 ),

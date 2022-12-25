@@ -8,6 +8,7 @@ version: 1.0.0+1
 environment:
   sdk: '>=2.18.5 <3.0.0'
 
+
 dependencies:
   flutter:
     sdk: flutter
@@ -16,7 +17,7 @@ dependencies:
   
   # External Dependencies Packages 
   jiffy: ^5.0.0
-  image_picker: ^0.8.6
+  #image_picker: ^0.8.6
   http: ^0.13.5
   shared_preferences: ^2.0.6
   firebase_core: ^1.4.0
@@ -24,12 +25,16 @@ dependencies:
   cloud_firestore: ^2.4.0
   firebase_messaging: ^10.0.4
   firebase_auth: ^3.0.1
-  dropdown_search: ^0.6.3
-  google_sign_in: ^5.0.5
-  font_awesome_flutter: ^9.1.0 
-  url_launcher: ^6.0.9
-  flutter_rating_bar: ^4.0.0
+  #dropdown_search: ^0.6.3
+  google_sign_in: ^5.4.2
+  font_awesome_flutter: ^10.3.0 
+  url_launcher: ^6.1.7
+  flutter_rating_bar: ^4.0.1
   get: 
+
+# dependency_overrides:
+#   platform: ^3.1.0
+
 
 dev_dependencies:
   flutter_test:

@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:star/add_note.dart';
 
-
 import 'package:star/setting.dart';
 
 import 'package:star/sign_in.dart';
@@ -16,7 +15,15 @@ import 'home_page.dart';
 bool islogin = false;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: FirebaseOptions(
+    apiKey: "AIzaSyCaIfSzGR9F3AWt0qnCdIyRbuvLMn4ex-I",
+    authDomain: "noteapp-f4afc.firebaseapp.com",
+    projectId: "noteapp-f4afc",
+    storageBucket: "noteapp-f4afc.appspot.com",
+    messagingSenderId: "89427593115",
+    appId: "1:89427593115:web:f95e879413d9c19da6833e"
+  ));
 
   User? user = FirebaseAuth.instance.currentUser;
   if (user == null) {

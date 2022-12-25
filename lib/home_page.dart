@@ -1,10 +1,9 @@
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
+
 import 'package:star/component/alert.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:star/eidit_note.dart';
@@ -103,11 +102,12 @@ class _HomePageState extends State<HomePage> {
                 await FirebaseAuth.instance.signOut();
                 Navigator.of(context).pushReplacementNamed("SignIn");
               } catch (e) {
-                AwesomeDialog(
-                    title: "error",
-                    context: context,
-                    body: Text("an error occur"))
-                  ..show();
+                print(e);
+                // AwesomeDialog(
+                //     title: "error",
+                //     context: context,
+                //     body: Text("an error occur"))
+                //   ..show();
               }
             },
           )
@@ -118,11 +118,11 @@ class _HomePageState extends State<HomePage> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Container(
-                      height: MediaQuery.of(context).size.height * 0.7,
-                      width: MediaQuery.of(context).size.width * 0.7,
-                      child: Lottie.asset("assets/images/note.json"),
-                    ),
+                    // Container(
+                    //   height: MediaQuery.of(context).size.height * 0.7,
+                    //   width: MediaQuery.of(context).size.width * 0.7,
+                    //   child: Image.asset("assets/images/note.json"),
+                    // ),
                     Center(
                       child: Text(
                         "NIA".tr,

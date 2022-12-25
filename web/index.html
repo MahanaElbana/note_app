@@ -99,19 +99,25 @@
       loadMainDartJs();
     }
   </script>
-  <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyCaIfSzGR9F3AWt0qnCdIyRbuvLMn4ex-I",
-      authDomain: "noteapp-f4afc.firebaseapp.com",
-      projectId: "noteapp-f4afc",
-      storageBucket: "noteapp-f4afc.appspot.com",
-      messagingSenderId: "89427593115",
-      appId: "1:89427593115:web:6e8ce07415e07d34a6833e"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-  </script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCaIfSzGR9F3AWt0qnCdIyRbuvLMn4ex-I",
+    authDomain: "noteapp-f4afc.firebaseapp.com",
+    projectId: "noteapp-f4afc",
+    storageBucket: "noteapp-f4afc.appspot.com",
+    messagingSenderId: "89427593115",
+    appId: "1:89427593115:web:f95e879413d9c19da6833e"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
   <script src="main.dart.js" type="application/javascript"></script>
 
 </body>

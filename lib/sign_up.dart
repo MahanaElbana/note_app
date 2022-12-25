@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:awesome_dialog/awesome_dialog.dart';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:star/component/alert.dart';
@@ -388,11 +388,12 @@ class _SignUPState extends State<SignUP> {
                       //////////////////
                       Navigator.pop(context);
                       ///////////////////////
-                      AwesomeDialog(
-                        context: context,
-                        title: "ERROR",
-                        body: Text("name>2 , email>8 ,pasword>6"),
-                      )..show();
+                       print("e");
+                      // AwesomeDialog(
+                      //   context: context,
+                      //   title: "ERROR",
+                      //   body: Text("name>2 , email>8 ,pasword>6"),
+                      // )..show();
                     }
                   },
                 ),
