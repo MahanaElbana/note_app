@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:star/core/utils/app_enums.dart';
 import 'package:star/translation/translation.dart';
 import 'component/alert.dart';
 
@@ -26,7 +27,18 @@ class _SignINState extends State<SignIN> {
       });
     }
   }
+ // --------------------------------------//
+  String initialRoute(AppAuthEnum loginStatus) {
+    if (loginStatus == AppAuthEnum.isNotLogined) {
+      return "SignIn";
+    } else if (loginStatus == AppAuthEnum.isLoginedWithOutVerfication) {
+      return "Verfication";
+    } else {
+      return "HomePage";
+    }
+  }
 
+  //--------------------------------------//
   /////////////   Password obscure          ////////////////
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
@@ -247,7 +259,14 @@ class _SignINState extends State<SignIN> {
                         _userCredential = await FirebaseAuth.instance
                             .signInWithEmailAndPassword(
                                 email: this.email, password: this.password);
-                        Navigator.of(context).pushReplacementNamed("HomePage");
+                      if(_userCredential != null){
+                         if(_userCredential!.user!.emailVerified){
+                         Navigator.of(context).pushReplacementNamed("HomePage");
+                       }
+                       else{
+                        Navigator.of(context).pushReplacementNamed("Verfication");
+                       }
+                      }
                         print(_userCredential?.user?.uid);
                       } on FirebaseAuthException catch (e) {
                         if (e.code == 'user-not-found') {
