@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:star/component/alert.dart';
+import 'package:star/core/utils/app_enums.dart';
+import 'package:star/model/user_model.dart';
 import 'package:star/sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -28,6 +30,18 @@ class _SignUPState extends State<SignUP> {
     }
   }
 
+  // --------------------------------------//
+  String initialRoute(AppAuthEnum loginStatus) {
+    if (loginStatus == AppAuthEnum.isNotLogined) {
+      return "SignIn";
+    } else if (loginStatus == AppAuthEnum.isLoginedWithOutVerfication) {
+      return "Verfication";
+    } else {
+      return "HomePage";
+    }
+  }
+
+  //--------------------------------------//
   TextEditingController _nameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
@@ -37,7 +51,7 @@ class _SignUPState extends State<SignUP> {
   String password = "";
   String phone = "";
 
-  ////
+  // ======================================//
   UserCredential? _userCredential;
   /////////////             ////////////////
   int color1 = Color(0xff4d94ff).value;
@@ -109,7 +123,8 @@ class _SignUPState extends State<SignUP> {
                     hintStyle: styleFunc(color: AppColors.kGrayColor),
                     labelText: "NE".tr,
                     labelStyle: styleFunc(color: AppColors.kWhiteColor),
-                    prefixIcon: Icon(Icons.person, color: AppColors.kWhiteColor),
+                    prefixIcon:
+                        Icon(Icons.person, color: AppColors.kWhiteColor),
 
                     /////   enabledBorder enabled start shape////
                     enabledBorder: OutlineInputBorder(
@@ -122,7 +137,8 @@ class _SignUPState extends State<SignUP> {
                     ////////   focusedBorder at writting  ////
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
-                      borderSide: BorderSide(color: AppColors.kWhiteColor, width: 1.0),
+                      borderSide:
+                          BorderSide(color: AppColors.kWhiteColor, width: 1.0),
                     ),
                     ////////   focusedBorder ////
                   ),
@@ -165,7 +181,8 @@ class _SignUPState extends State<SignUP> {
                     ////////   focusedBorder at writting  ////
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
-                      borderSide: BorderSide(color: AppColors.kWhiteColor, width: 1.0),
+                      borderSide:
+                          BorderSide(color: AppColors.kWhiteColor, width: 1.0),
                     ),
                     ////////   focusedBorder ////
                   ),
@@ -208,7 +225,8 @@ class _SignUPState extends State<SignUP> {
                     ////////   focusedBorder at writting  ////
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
-                      borderSide: BorderSide(color: AppColors.kWhiteColor, width: 1.0),
+                      borderSide:
+                          BorderSide(color: AppColors.kWhiteColor, width: 1.0),
                     ),
                     ////////   focusedBorder ////
                   ),
@@ -251,7 +269,8 @@ class _SignUPState extends State<SignUP> {
                     ////////   focusedBorder at writting  ////
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
-                      borderSide: BorderSide(color: AppColors.kWhiteColor, width: 1.0),
+                      borderSide:
+                          BorderSide(color: AppColors.kWhiteColor, width: 1.0),
                     ),
                     ////////   focusedBorder ////
 
@@ -259,13 +278,16 @@ class _SignUPState extends State<SignUP> {
                       icon: enable
                           ? Icon(Icons.visibility_off_outlined,
                               color: AppColors.kGrayColor)
-                          : Icon(Icons.visibility_outlined, color: AppColors.kWhiteColor),
+                          : Icon(Icons.visibility_outlined,
+                              color: AppColors.kWhiteColor),
                       onPressed: togleObscure,
                     ),
 
                     suffix: enable
-                        ? Text("Sh".tr, style: TextStyle(color: AppColors.kGrayColor))
-                        : Text("Hd".tr, style: TextStyle(color: AppColors.kWhiteColor)),
+                        ? Text("Sh".tr,
+                            style: TextStyle(color: AppColors.kGrayColor))
+                        : Text("Hd".tr,
+                            style: TextStyle(color: AppColors.kWhiteColor)),
                   ),
                   /////////     decoration: InputDecoration   ////////
                   controller: _passwordController,
@@ -294,14 +316,15 @@ class _SignUPState extends State<SignUP> {
                           children: [
                             Text(
                               "DYHAA".tr,
-                              style:
-                                  styleFunc(color: AppColors.kGrayColor, fontsize: 20.0),
+                              style: styleFunc(
+                                  color: AppColors.kGrayColor, fontsize: 20.0),
                             ),
                             GestureDetector(
                               child: Text(
                                 "SI".tr,
                                 style: styleFunc(
-                                    color: AppColors.kWhiteColor, fontsize: 27.0),
+                                    color: AppColors.kWhiteColor,
+                                    fontsize: 27.0),
                               ),
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
@@ -347,22 +370,24 @@ class _SignUPState extends State<SignUP> {
                         email = _emailController.text;
                         phone = _phoneController.text;
                       });
-                      //// signUP  ///
+                      // ------------------------------ --- signUP   -----------------------------//
                       try {
                         showdialog(context);
                         _userCredential = await FirebaseAuth.instance
                             .createUserWithEmailAndPassword(
                                 email: this.email, password: this.password);
-                        //////////// ********** /////////////////////////
+                        String userId = _userCredential!.user!.uid;
+                        UserModel userModel = UserModel(
+                            id: userId,
+                            userName: _nameController.text.toString().trim(),
+                            password:  _passwordController.text.toString().trim(),
+                            phone:  _phoneController.text.toString().trim(),
+                            email: _emailController.text.toString().trim() ,);
                         if (_userCredential != null) {
                           await FirebaseFirestore.instance
                               .collection("user")
-                              .add({
-                            "name": _nameController.text,
-                            "email": _emailController.text,
-                            "password": _passwordController.text,
-                            "phone": _phoneController.text,
-                          });
+                              .doc(userId)
+                              .set(userModel.toJsonData());
                         }
                         /////////////// ************ //////////////////
                         print(_userCredential?.user?.uid);
@@ -388,7 +413,7 @@ class _SignUPState extends State<SignUP> {
                       //////////////////
                       Navigator.pop(context);
                       ///////////////////////
-                       print("e");
+                      print("e");
                       // AwesomeDialog(
                       //   context: context,
                       //   title: "ERROR",
