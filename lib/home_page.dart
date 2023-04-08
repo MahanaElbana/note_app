@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:star/component/alert.dart';
+import 'package:star/data/firebase/firebase_auth.dart';
 import 'package:star/eidit_note.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 
 class HomePage extends StatefulWidget {
   @override
@@ -73,13 +73,16 @@ class _HomePageState extends State<HomePage> {
             (color1 == Color(0xff4d94ff).value) ? Colors.blue : Colors.black,
         leading: Icon(
           Icons.home_outlined,
-          color: (color1 == Color(0xff4d94ff).value) ? AppColors.kGrayColor : AppColors.kWhiteColor,
+          color: (color1 == Color(0xff4d94ff).value)
+              ? AppColors.kGrayColor
+              : AppColors.kWhiteColor,
         ),
         title: Text(
           "HP".tr,
           style: styleFunc(
-            color:
-                (color1 == Color(0xff4d94ff).value) ? AppColors.kGrayColor : AppColors.kWhiteColor,
+            color: (color1 == Color(0xff4d94ff).value)
+                ? AppColors.kGrayColor
+                : AppColors.kWhiteColor,
           ),
         ),
         actions: [
@@ -97,8 +100,8 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Icons.logout),
             onPressed: () async {
               try {
-                await FirebaseAuth.instance.signOut();
-                Navigator.of(context).pushReplacementNamed("SignIn");
+                FirebaseAuthDataSource.signOut().then((value) =>
+                    Navigator.of(context).pushReplacementNamed("SignIn"));
               } catch (e) {
                 print(e);
                 // AwesomeDialog(
@@ -159,34 +162,32 @@ class _HomePageState extends State<HomePage> {
                       child: ListTile(
                         title: Text(
                           "${lData[index]["title"]}",
-                          style: styleFunc(color: AppColors.kWhiteColor, fontsize: 20.0),
+                          style: styleFunc(
+                              color: AppColors.kWhiteColor, fontsize: 20.0),
                         ),
 
-                    //========== =======  deleteData ======= ===========//
+                        //========== =======  deleteData ======= ===========//
                         leading: IconButton(
                           icon: Icon(
-                            Icons.delete_forever_rounded ,
+                            Icons.delete_forever_rounded,
                             color: Colors.red[900],
                           ),
                           onPressed: () async {
-                
                             await deleteData(idDoc[index]);
                             setState(() {
                               lData = [];
                               idDoc = [];
                             });
                             await getDat();
-                
                           },
                         ),
-                    //========= ========== === deleteData ======== ======//
+                        //========= ========== === deleteData ======== ======//
                         trailing: IconButton(
                           icon: Icon(
-                            Icons.edit_note ,
+                            Icons.edit_note,
                             color: AppColors.kGreenColor,
                           ),
                           onPressed: () {
-                          
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
@@ -206,7 +207,8 @@ class _HomePageState extends State<HomePage> {
                         subtitle: Text(
                           "${lData[index]["content"]}",
                           style: TextStyle(
-                              fontFamily: "GowunBatang", color: AppColors.kWhiteColor),
+                              fontFamily: "GowunBatang",
+                              color: AppColors.kWhiteColor),
                           // overflow: TextOverflow.clip,
                         ),
                       ),
@@ -220,8 +222,9 @@ class _HomePageState extends State<HomePage> {
         children: [
           FloatingActionButton(
             isExtended: true,
-            backgroundColor:
-                (color1 == Color(0xff4d94ff).value) ? Colors.blue : AppColors.kGrayColor,
+            backgroundColor: (color1 == Color(0xff4d94ff).value)
+                ? Colors.blue
+                : AppColors.kGrayColor,
             child: Center(
                 child: Icon(
               Icons.settings,
@@ -241,8 +244,9 @@ class _HomePageState extends State<HomePage> {
           ),
           FloatingActionButton(
             isExtended: true,
-            backgroundColor:
-                (color1 == Color(0xff4d94ff).value) ? Colors.blue : AppColors.kGrayColor,
+            backgroundColor: (color1 == Color(0xff4d94ff).value)
+                ? Colors.blue
+                : AppColors.kGrayColor,
             child: Center(
               child: Text(
                 "ADD".tr,

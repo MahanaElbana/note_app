@@ -1,5 +1,5 @@
 name: star
-description: TODO using firebase , Getx and shared preferences.
+description: Note App using firebase , Getx and shared preferences.
 
 publish_to: 'none'
 
@@ -12,9 +12,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  cupertino_icons: ^1.0.2
   
+  # cupertino icons
+  cupertino_icons: ^1.0.2
+
   # External Dependencies Packages 
   jiffy: ^5.0.0
   #image_picker: ^0.8.6
@@ -31,9 +32,7 @@ dependencies:
   url_launcher: ^6.1.7
   flutter_rating_bar: ^4.0.1
   get: 
-
-# dependency_overrides:
-#   platform: ^3.1.0
+  dartz:
 
 
 dev_dependencies:
