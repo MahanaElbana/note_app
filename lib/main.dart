@@ -63,20 +63,24 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      //  home: VerficationEmailScreen(),
-      // initialRoute: initialRoute(loginStatus),
-      initialRoute: loginStatus == AppAuthEnum.isNotLogined
-          ? "SignIn"
+        home: loginStatus == AppAuthEnum.isNotLogined
+          ? SignIN()
           : (loginStatus == AppAuthEnum.isLoginedWithOutVerfication
-              ? 'Verfication'
-              : "HomePage"),
+              ? EmailVerificationScreen()
+              : HomePage()),
+      initialRoute: initialRoute(loginStatus),
+      // initialRoute: loginStatus == AppAuthEnum.isNotLogined
+      //     ? "SignIn"
+      //     : (loginStatus == AppAuthEnum.isLoginedWithOutVerfication
+      //         ? 'Verfication'
+      //         : "HomePage"),
       routes: {
         "SignUp": (BuildContext context) => SignUP(),
         "SignIn": (BuildContext context) => SignIN(),
         "HomePage": (BuildContext context) => HomePage(),
         "AddNote": (BuildContext context) => AddNote(),
         "Settings": (BuildContext context) => Settings(),
-        "Verfication": (BuildContext context) => VerficationEmailScreen(),
+        "Verfication": (BuildContext context) => EmailVerificationScreen(),
       },
     );
   }

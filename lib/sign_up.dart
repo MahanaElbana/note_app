@@ -1,14 +1,17 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:star/component/alert.dart';
+import 'package:star/controller/sign_up_controller.dart';
+import 'package:star/core/error/failure.dart';
 import 'package:star/core/utils/app_enums.dart';
-import 'package:star/model/user_model.dart';
+import 'package:star/data/firebase/firebase_auth.dart';
 import 'package:star/sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:star/verification_email_screen.dart';
+
+import 'component/alert_dialog.dart';
 
 class SignUP extends StatefulWidget {
   @override
@@ -75,6 +78,7 @@ class _SignUPState extends State<SignUP> {
   ///
   @override
   Widget build(BuildContext context) {
+    SignUpControllerImp controller = Get.put(SignUpControllerImp());
     return Scaffold(
       //appBar: AppBar( ),
       body: Container(
@@ -359,6 +363,8 @@ class _SignUPState extends State<SignUP> {
                     "SU".tr,
                     style: styleFunc(color: Color(0xff002699), fontsize: 25.0),
                   ),
+
+                  ////////////////////////////////////////////////////
                   onPressed: () async {
                     if (_nameController.text.length > 2 &&
                         _emailController.text.length > 8 &&
@@ -371,54 +377,27 @@ class _SignUPState extends State<SignUP> {
                         phone = _phoneController.text;
                       });
                       // ------------------------------ --- signUP   -----------------------------//
-                      try {
                         showdialog(context);
-                        _userCredential = await FirebaseAuth.instance
-                            .createUserWithEmailAndPassword(
-                                email: this.email, password: this.password);
-                        String userId = _userCredential!.user!.uid;
-                        UserModel userModel = UserModel(
-                            id: userId,
-                            userName: _nameController.text.toString().trim(),
-                            password:  _passwordController.text.toString().trim(),
-                            phone:  _phoneController.text.toString().trim(),
-                            email: _emailController.text.toString().trim() ,);
-                        if (_userCredential != null) {
-                          await FirebaseFirestore.instance
-                              .collection("user")
-                              .doc(userId)
-                              .set(userModel.toJsonData());
-                        }
-                        /////////////// ************ //////////////////
-                        print(_userCredential?.user?.uid);
-                        Navigator.of(context).pushReplacementNamed("HomePage");
-                      } on FirebaseAuthException catch (e) {
-                        if (e.code == "email-already-in-use") {
-                          //////////////////
-                          Navigator.pop(context);
-                          ///////////////////////
-                          print("the email address is used by an0ther one");
-                        } else if (e.code == "weak-password") {
-                          //////////////////
-                          Navigator.pop(context);
-                          ///////////////////////
-                          print("password should be at least 6 characters");
-                        }
-                      } catch (e) {
-                        print(e);
-                      }
-
-                      //// signUP  ///
+                        var returnecData = await FirebaseAuthDataSource.signUp(
+                          email: _emailController.text,
+                          password: _passwordController.text,
+                          phone: _phoneController.text,
+                          userName: _nameController.text,
+                        );
+                        Navigator.pop(context);
+                        returnecData.fold((Failure failure) {
+                          
+                          defaultAlertDialog(
+                              alertDialogType: AlertDialogType.error,
+                              context: context,
+                              title: failure.message);
+                        }, (r) {
+                          Navigator.of(context)
+                              .pushReplacement(MaterialPageRoute(builder: (context) => EmailVerificationScreen(),));
+                        });
+                     
                     } else {
-                      //////////////////
-                      Navigator.pop(context);
-                      ///////////////////////
                       print("e");
-                      // AwesomeDialog(
-                      //   context: context,
-                      //   title: "ERROR",
-                      //   body: Text("name>2 , email>8 ,pasword>6"),
-                      // )..show();
                     }
                   },
                 ),
