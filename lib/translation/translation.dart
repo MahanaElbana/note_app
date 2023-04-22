@@ -6,10 +6,10 @@ class Localization implements Translations {
   Map<String, Map<String, String>> get keys => {
         'en': {
           //////////// **  Sign In  ** /////////////////
-          "SU": "Sign Up",
-          "SI": "Sign In",
-          "EYE": "Enter your email ",
-          "E": "Email",
+          AppLanguageStrings.signUpString: "Sign Up",
+          AppLanguageStrings.signInString: "Sign In",
+          AppLanguageStrings.enterYourEmailString: "Enter your email ",
+          AppLanguageStrings.emailString: "Email",
           "EYP": "Enter your password ",
           "P": "Password",
           "Sh": "show",
@@ -101,4 +101,50 @@ class LanguageController extends GetxController {
     var local = Locale(code);
     Get.updateLocale(local);
   }
+}
+
+class AppLanguageStrings {
+  static const String arabicLanguage = "ar";
+  static const String englishLanguage = "en";
+
+  static const String signUpString = "signUpString";
+  static const String signInString = "signInString";
+  static const String enterYourEmailString = "enterYourEmailString";
+  static const String emailString = "emailString";
+  static const String enterYourPasswordString = "enterYourPasswordString"; 
+  // static const String englishLanguage = "P": "Password",
+  // static const String englishLanguage = "Sh": "show",
+  // static const String englishLanguage = "Hd": "hide",
+  // static const String englishLanguage = "DNYHAA": "Do not you have an Account ? ",
+  // static const String englishLanguage = "OR": "- OR -",
+  // static const String englishLanguage = "SIW": "Sign in with",
+  // static const String englishLanguage = "LO": "LOGIN",
+  // static const String englishLanguage = //////////// **  Sign Up ** /////////////////
+  // static const String englishLanguage = "EYN": "Enter your name ",
+  // static const String englishLanguage = "NE": "Name",
+  // static const String englishLanguage = "EYPh": "Enter your Phone ",
+  // static const String englishLanguage = "Ph": "Phone",
+  // static const String englishLanguage = "DYHAA": "Do you have an Account ? ",
+  // static const String englishLanguage = //////////// **  Home Page ** /////////////////
+  // static const String englishLanguage = "HP": "Home Page",
+  // static const String englishLanguage = "LOu": "Log out",
+  // static const String englishLanguage = "NIA": "No items added !",
+  // static const String englishLanguage = "ADD": "Add",
+  // static const String englishLanguage = //////////// **  LightTheme ** /////////////////
+  // static const String englishLanguage = "LT": "Light theme",
+  // static const String englishLanguage = "DT": "Dark theme",
+  // static const String englishLanguage = "CL": "Change Language",
+  // static const String englishLanguage = "S": "Settings",
+  // static const String englishLanguage = "AU": "About Us",
+  // static const String englishLanguage = "FB": "facebook",
+  // static const String englishLanguage = "SM": "send me",
+  // static const String englishLanguage = "GAVFU": "give a value for us ",
+  // static const String englishLanguage = //////////// **  Add Note ** /////////////////
+  // static const String englishLanguage = "AN": "Add note",
+  // static const String englishLanguage = "T": "Title",
+  // static const String englishLanguage = "EYT": "Enter Your Title",
+  // static const String englishLanguage = "C": "Content",
+  // static const String englishLanguage = "EYC": "Enter your content",
+  // static const String englishLanguage = "Sv": "Save",
+  // static const String englishLanguage = "Up": "Update Note"
 }
