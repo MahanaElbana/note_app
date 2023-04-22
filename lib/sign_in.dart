@@ -1,16 +1,16 @@
-
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:star/core/utils/app_enums.dart';
+
 import 'package:star/translation/translation.dart';
 import 'component/alert.dart';
+import 'core/utils/routes.dart';
 
 class SignIN extends StatefulWidget {
   @override
-  _SignINState createState() => _SignINState();
+  State<SignIN> createState() => _SignINState();
 }
 
 class _SignINState extends State<SignIN> {
@@ -27,27 +27,25 @@ class _SignINState extends State<SignIN> {
       });
     }
   }
- // --------------------------------------//
-  String initialRoute(AppAuthEnum loginStatus) {
-    if (loginStatus == AppAuthEnum.isNotLogined) {
-      return "SignIn";
-    } else if (loginStatus == AppAuthEnum.isLoginedWithOutVerfication) {
-      return "Verfication";
-    } else {
-      return "HomePage";
-    }
-  }
+  // --------------------------------------//
+  // String initialRoute(AppAuthEnum loginStatus) {
+  //   if (loginStatus == AppAuthEnum.isNotLogined) {
+  //     return "SignIn";
+  //   } else if (loginStatus == AppAuthEnum.isLoginedWithOutVerfication) {
+  //     return "Verfication";
+  //   } else {
+  //     return "HomePage";
+  //   }
+  // }
 
   //--------------------------------------//
   /////////////   Password obscure          ////////////////
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  // TextEditingController _emailController = TextEditingController();
+  // TextEditingController _passwordController = TextEditingController();
 
   String email = "";
   String password = "";
 
-  ////
-  UserCredential? _userCredential;
   /////////////             ////////////////
   int color1 = Color(0xff4d94ff).value;
   int color2 = Color(0xff0052cc).value;
@@ -61,11 +59,11 @@ class _SignINState extends State<SignIN> {
     });
   }
 
-  @override
-  void initState() {
-    getDataColor();
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   getDataColor();
+  //   super.initState();
+  // }
 
   ////////////////////////////////////
   var cc = Get.put(LanguageController());
@@ -104,9 +102,9 @@ class _SignINState extends State<SignIN> {
                 child: TextField(
                   /////    decoration: InputDecoration  /////
                   decoration: InputDecoration(
-                    hintText: "EYE".tr,
+                    hintText: AppLanguageStrings.enterYourEmailString.tr,
                     hintStyle: styleFunc(color: AppColors.kGrayColor),
-                    labelText: "E".tr,
+                    labelText: AppLanguageStrings.enterYourEmailString.tr,
                     labelStyle: styleFunc(color: AppColors.kWhiteColor),
                     prefixIcon: Icon(
                       Icons.email,
@@ -124,12 +122,13 @@ class _SignINState extends State<SignIN> {
                     ////////   focusedBorder at writting  ////
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
-                      borderSide: BorderSide(color: AppColors.kWhiteColor, width: 1.0),
+                      borderSide:
+                          BorderSide(color: AppColors.kWhiteColor, width: 1.0),
                     ),
                     ////////   focusedBorder ////
                   ),
                   /////////     decoration: InputDecoration   ////////
-                  controller: _emailController,
+                  // controller: _emailController,
                   keyboardType: TextInputType.visiblePassword,
                   cursorColor: AppColors.kWhiteColor,
                   cursorHeight: 27.0,
@@ -148,9 +147,11 @@ class _SignINState extends State<SignIN> {
                   /////    decoration: InputDecoration  /////
                   decoration: InputDecoration(
                     hintText: "EYP".tr,
-                    hintStyle: styleFunc(color: AppColors.kGrayColor, fontsize: 18),
+                    hintStyle:
+                        styleFunc(color: AppColors.kGrayColor, fontsize: 18),
                     labelText: "P".tr,
-                    labelStyle: styleFunc(color: AppColors.kWhiteColor, fontsize: 18),
+                    labelStyle:
+                        styleFunc(color: AppColors.kWhiteColor, fontsize: 18),
                     prefixIcon: Icon(
                       Icons.lock_open_outlined,
                       color: AppColors.kWhiteColor,
@@ -167,7 +168,8 @@ class _SignINState extends State<SignIN> {
                     ////////   focusedBorder at writting  ////
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
-                      borderSide: BorderSide(color: AppColors.kWhiteColor, width: 1.0),
+                      borderSide:
+                          BorderSide(color: AppColors.kWhiteColor, width: 1.0),
                     ),
                     ////////   focusedBorder ////
 
@@ -175,16 +177,19 @@ class _SignINState extends State<SignIN> {
                       icon: enable
                           ? Icon(Icons.visibility_off_outlined,
                               color: AppColors.kGrayColor)
-                          : Icon(Icons.visibility_outlined, color: AppColors.kWhiteColor),
+                          : Icon(Icons.visibility_outlined,
+                              color: AppColors.kWhiteColor),
                       onPressed: togleObscure,
                     ),
 
                     suffix: enable
-                        ? Text("Sh".tr, style: TextStyle(color: AppColors.kGrayColor))
-                        : Text("Hd".tr, style: TextStyle(color: AppColors.kWhiteColor)),
+                        ? Text("Sh".tr,
+                            style: TextStyle(color: AppColors.kGrayColor))
+                        : Text("Hd".tr,
+                            style: TextStyle(color: AppColors.kWhiteColor)),
                   ),
                   /////////     decoration: InputDecoration   ////////
-                  controller: _passwordController,
+                  // controller: _passwordController,
                   keyboardType: TextInputType.visiblePassword,
                   cursorColor: AppColors.kWhiteColor,
                   cursorHeight: 27.0,
@@ -211,18 +216,18 @@ class _SignINState extends State<SignIN> {
                           children: [
                             Text(
                               "DNYHAA".tr,
-                              style:
-                                  styleFunc(color: AppColors.kGrayColor, fontsize: 20.0),
+                              style: styleFunc(
+                                  color: AppColors.kGrayColor, fontsize: 20.0),
                             ),
                             GestureDetector(
                               child: Text(
                                 "SU".tr,
                                 style: styleFunc(
-                                    color: AppColors.kWhiteColor, fontsize: 27.0),
+                                    color: AppColors.kWhiteColor,
+                                    fontsize: 27.0),
                               ),
                               onTap: () {
-                                Navigator.pushReplacementNamed(
-                                    context, "SignUp");
+                                Get.toNamed(AppRoutes.signUpScreen);
                               },
                             )
                           ],
@@ -235,89 +240,91 @@ class _SignINState extends State<SignIN> {
               ////////////    TextField     ////////////
               SizedBox(height: 20.0),
 
-              /// ////////   TextButton  ////
-              Container(
-                height: 45.0,
-                width: MediaQuery.of(context).size.width * 0.85,
-                decoration: BoxDecoration(
-                    color: AppColors.kWhiteColor,
-                    borderRadius: BorderRadius.circular(15.0)),
-                child: TextButton(
-                  child: Text("LO".tr,
-                      style:
-                          styleFunc(color: Color(0xff002699), fontsize: 25.0)),
-                  onPressed: () async {
-                    if (_emailController.text.length > 8 &&
-                        _passwordController.text.length > 6) {
-                      setState(() {
-                        password = _passwordController.text;
-                        email = _emailController.text;
-                      });
-                      //// signIn  ///
-                      try {
-                        showdialog(context);
-                        _userCredential = await FirebaseAuth.instance
-                            .signInWithEmailAndPassword(
-                                email: this.email, password: this.password);
-                      if(_userCredential != null){
-                         if(_userCredential!.user!.emailVerified){
-                         Navigator.of(context).pushReplacementNamed("HomePage");
-                       }
-                       else{
-                        Navigator.of(context).pushReplacementNamed("Verfication");
-                       }
-                      }
-                        print(_userCredential?.user?.uid);
-                      } on FirebaseAuthException catch (e) {
-                        if (e.code == 'user-not-found') {
-                          Navigator.of(context).pop();
-                          // AwesomeDialog(
-                          //     context: context,
-                          //     title: "user",
-                          //     body: Text("user-not-found"))
-                          //   ..show();
-                        } else if (e.code == 'wrong-password') {
-                          Navigator.of(context).pop();
-                          // AwesomeDialog(
-                          //     context: context,
-                          //     title: "user",
-                          //     body: Text("wrong-password"))
-                          //   ..show();
-                        } else {
-                          Navigator.of(context).pop();
-                          // AwesomeDialog(
-                          //     context: context,
-                          //     title: "user",
-                          //     body: Text("user-not-found and wrong-password"))
-                          //   ..show();
-                        }
-                      } catch (e) {
-                        // AwesomeDialog(
-                        //     context: context,
-                        //     title: "user",
-                        //     body: Text("an error ocurr!"))
-                        //   ..show();
-                      }
+              // /// ////////   TextButton  ////
+              // Container(
+              //   height: 45.0,
+              //   width: MediaQuery.of(context).size.width * 0.85,
+              //   decoration: BoxDecoration(
+              //       color: AppColors.kWhiteColor,
+              //       borderRadius: BorderRadius.circular(15.0)),
+              //   child: TextButton(
+              //     child: Text("LO".tr,
+              //         style:
+              //             styleFunc(color: Color(0xff002699), fontsize: 25.0)),
+              //     onPressed: () async {
+              //       if (_emailController.text.length > 8 &&
+              //           _passwordController.text.length > 6) {
+              //         setState(() {
+              //           password = _passwordController.text;
+              //           email = _emailController.text;
+              //         });
+              //         //// signIn  ///
+              //         try {
+              //           showdialog(context);
+              //           _userCredential = await FirebaseAuth.instance
+              //               .signInWithEmailAndPassword(
+              //                   email: this.email, password: this.password);
+              //         if(_userCredential != null){
+              //            if(_userCredential!.user!.emailVerified){
+              //            Navigator.of(context).pushReplacementNamed("HomePage");
+              //          }
+              //          else{
+              //           Navigator.of(context).pushReplacementNamed("Verfication");
+              //          }
+              //         }
+              //           print(_userCredential?.user?.uid);
+              //         } on FirebaseAuthException catch (e) {
+              //           if (e.code == 'user-not-found') {
+              //             Navigator.of(context).pop();
+              //             // AwesomeDialog(
+              //             //     context: context,
+              //             //     title: "user",
+              //             //     body: Text("user-not-found"))
+              //             //   ..show();
+              //           } else if (e.code == 'wrong-password') {
+              //             Navigator.of(context).pop();
+              //             // AwesomeDialog(
+              //             //     context: context,
+              //             //     title: "user",
+              //             //     body: Text("wrong-password"))
+              //             //   ..show();
+              //           } else {
+              //             Navigator.of(context).pop();
+              //             // AwesomeDialog(
+              //             //     context: context,
+              //             //     title: "user",
+              //             //     body: Text("user-not-found and wrong-password"))
+              //             //   ..show();
+              //           }
+              //         } catch (e) {
+              //           // AwesomeDialog(
+              //           //     context: context,
+              //           //     title: "user",
+              //           //     body: Text("an error ocurr!"))
+              //           //   ..show();
+              //         }
 
-                      //// signUP  ///
-                    } else {
-                      // AwesomeDialog(
-                      //   context: context,
-                      //   title: "ERROR",
-                      //   body: Text("name>2 , email>8 ,pasword>6"),
-                      // )..show();
-                    }
-                  },
-                ),
-              ),
-              ////////   TextBut ton  ////
+              //         //// signUP  ///
+              //       } else {
+              //         // AwesomeDialog(
+              //         //   context: context,
+              //         //   title: "ERROR",
+              //         //   body: Text("name>2 , email>8 ,pasword>6"),
+              //         // )..show();
+              //       }
+              //     },
+              //   ),
+              // ),
+              // ////////   TextBut ton  ////
 
               SizedBox(height: 13.0),
               Text("OR".tr,
-                  style: styleFunc(color: AppColors.kGrayColor, fontsize: 18.0)),
+                  style:
+                      styleFunc(color: AppColors.kGrayColor, fontsize: 18.0)),
               SizedBox(height: 10),
               Text("SIW".tr,
-                  style: styleFunc(color: AppColors.kGrayColor, fontsize: 18.0)),
+                  style:
+                      styleFunc(color: AppColors.kGrayColor, fontsize: 18.0)),
               SizedBox(height: 25.0),
               //////////////////////
               Row(
@@ -343,13 +350,14 @@ class _SignINState extends State<SignIN> {
                     heroTag: "facebook",
                     backgroundColor: Color(color2),
                     onPressed: () {
-                      cc.changeLanguage('en');
+                      // cc.changeLanguage('en');
+                      // Get.toNamed('Settings', arguments: "mahney elbana");
+                      // Get.changeTheme(
+                      //    Get.isDarkMode ? ThemeData.light() : ThemeData.dark(),
+                      // );
+                      Get.toNamed(AppRoutes.homePageScreen) ; 
                     },
-                    child: FaIcon(
-                      FontAwesomeIcons.facebook,
-                      color: Color(0xff002699),
-                      size: 50.0,
-                    ),
+                    child: Icon(Icons.facebook) ,
                   )
                 ],
               )

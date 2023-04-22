@@ -1,8 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'dart:async';
 
 import 'package:star/home_page.dart';
+
+import 'core/utils/routes.dart';
+import 'data/firebase/firebase_auth.dart';
 
 class EmailVerificationScreen extends StatefulWidget {
   const EmailVerificationScreen({Key? key}) : super(key: key);
@@ -30,11 +35,9 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
     setState(() {
       isEmailVerified = FirebaseAuth.instance.currentUser!.emailVerified;
     });
-
     if (isEmailVerified) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Email Successfully Verified")));
-
       timer?.cancel();
     }
   }
@@ -71,6 +74,13 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                   ),
                 ),
               ),
+              OutlinedButton(
+                  onPressed: () {
+                    FirebaseAuthDataSource.Logout().then((value) {
+                      Get.offAllNamed(AppRoutes.signInScreen) ; 
+                    });
+                  },
+                  child: Text("log out")),
               const SizedBox(height: 16),
               isEmailVerified
                   ? const Text("Email is verified")
@@ -94,7 +104,10 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                         onPressed: () {
                           Navigator.pushAndRemoveUntil(
                             context,
-                            MaterialPageRoute(builder:(context) => HomePage(),),(route) => false,
+                            MaterialPageRoute(
+                              builder: (context) => HomePage(),
+                            ),
+                            (route) => false,
                           );
                         },
                       ),

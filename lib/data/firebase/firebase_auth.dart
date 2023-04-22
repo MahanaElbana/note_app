@@ -56,7 +56,7 @@ class FirebaseAuthDataSource {
   }
 
   /// ========= Sign Out =================///
-  static Future<void> signOut() async {
+  static Future<void> Logout() async {
     await FirebaseAuth.instance.signOut();
   }
 }

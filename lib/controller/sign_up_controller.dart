@@ -45,7 +45,7 @@ class SignUpControllerImp extends SignUpController {
 
   @override
   Future<Either<Failure, Enum>> signUp() async {
-    FormState? formdata = formstate.currentState;
+     FormState? formdata = formstate.currentState;
 
     var returnedstatusOrError = await FirebaseAuthDataSource.signUp(
       email: email.text,

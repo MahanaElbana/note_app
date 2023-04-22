@@ -10,6 +10,9 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class Settings extends StatefulWidget {
+  // final String data ; 
+  // const Settings({super.key , required this.data});
+
   @override
   _SettingsState createState() => _SettingsState();
 }
@@ -53,8 +56,7 @@ class _SettingsState extends State<Settings> {
   /// [scheme] == > 1]"http" or "https"  2]"mailto"    3]"tel"    4]"sms"
   /// [path] == > ممكن يكون رقم وموبيل  او يكون ايميل اويكون رابط
 
-  String _facebookUrl =
-      "https://www.facebook.com/profile.php?id=565656";
+  String _facebookUrl = "https://www.facebook.com/profile.php?id=565656";
 
   //String emailaddress =  Uri(scheme: 'mailto', path: 'example@gmail.com').toString();
   String emailaddress = "mailto:examplej@gmail.com";
@@ -101,13 +103,12 @@ class _SettingsState extends State<Settings> {
   }
 
 /////////////////////////// addRating////////////////////////////////////
-  //////
 
-  ///
   @override
   void initState() {
     getDataColor();
     getRating();
+    print( Get.arguments);
     super.initState();
   }
 
@@ -201,7 +202,7 @@ class _SettingsState extends State<Settings> {
                   leading: (color1 == Color(0xff4d94ff).value)
                       ? Icon(
                           Icons.light_mode,
-                          color:AppColors.kGrayColor,
+                          color: AppColors.kGrayColor,
                         )
                       : Icon(
                           Icons.dark_mode,
@@ -333,7 +334,7 @@ class _SettingsState extends State<Settings> {
                 style: styleFunc(
                     fontsize: 28,
                     color: (color1 == Color(0xff4d94ff).value)
-                        ?AppColors.kGrayColor
+                        ? AppColors.kGrayColor
                         : AppColors.kWhiteColor),
               ),
               SizedBox(
@@ -354,7 +355,6 @@ class _SettingsState extends State<Settings> {
                   await addRating(rating);
                 },
               ),
-              
             ],
           ),
         ),

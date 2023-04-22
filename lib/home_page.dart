@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:star/component/alert.dart';
+import 'package:star/controller/theme_controller.dart';
 import 'package:star/data/firebase/firebase_auth.dart';
 import 'package:star/eidit_note.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -66,11 +67,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-          (color1 == Color(0xff4d94ff).value) ? Colors.white : Colors.black,
+      // backgroundColor:
+      //     (color1 == Color(0xff4d94ff).value) ? Colors.white : Colors.black,
       appBar: AppBar(
-        backgroundColor:
-            (color1 == Color(0xff4d94ff).value) ? Colors.blue : Colors.black,
+        // backgroundColor:
+        //     (color1 == Color(0xff4d94ff).value) ? Colors.blue : Colors.black,
         leading: Icon(
           Icons.home_outlined,
           color: (color1 == Color(0xff4d94ff).value)
@@ -100,7 +101,7 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Icons.logout),
             onPressed: () async {
               try {
-                FirebaseAuthDataSource.signOut().then((value) =>
+                FirebaseAuthDataSource.Logout().then((value) =>
                     Navigator.of(context).pushReplacementNamed("SignIn"));
               } catch (e) {
                 print(e);
@@ -110,6 +111,12 @@ class _HomePageState extends State<HomePage> {
                 //     body: Text("an error occur"))
                 //   ..show();
               }
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.light),
+            onPressed: () {
+              ThemeController().changeAppTheme();
             },
           )
         ],

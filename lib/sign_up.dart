@@ -15,7 +15,7 @@ import 'component/alert_dialog.dart';
 
 class SignUP extends StatefulWidget {
   @override
-  _SignUPState createState() => _SignUPState();
+  State<SignUP> createState() => _SignUPState();
 }
 
 class _SignUPState extends State<SignUP> {
